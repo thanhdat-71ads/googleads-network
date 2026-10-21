@@ -1361,7 +1361,6 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
 [data-theme="dark"] .dc-credit{box-shadow:0 6px 18px rgba(0,0,0,.35)}
 @keyframes dcBlink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.6)}50%{opacity:.35;box-shadow:0 0 0 6px rgba(34,197,94,0)}}
 @media (max-width:560px){.dc-by,.dc-sep{display:none}.dc-credit{white-space:normal;text-align:center;max-width:calc(100% - 24px)}}
-@media (prefers-reduced-motion:reduce){.loginBrandIcon::before,.brand .logoBadge::before,.loginBrandIcon img,.brand .logoBadge img,.dc-dot{animation:none}}
 /* ===== CĂN ĐỀU CỘT TRÁI TRANG ĐĂNG NHẬP (thêm mới) ===== */
 .loginLeft .loginDesc{max-width:460px;text-align:justify;text-justify:inter-word}
 .loginLeft .loginFeat{max-width:460px;align-items:center;gap:14px;min-height:58px;margin-bottom:14px}
@@ -1376,8 +1375,8 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
   -webkit-mask-composite:xor;mask-composite:exclude;
   filter:drop-shadow(0 0 10px rgba(99,102,241,.7));
   animation:fxSpin 4s linear infinite}
-@media (prefers-reduced-motion:reduce){.loginCard::before{animation:none}}
 /* ===== NÚT ĐĂNG XUẤT Ở CUỐI SIDEBAR (thêm mới) ===== */
+.sidebar .sideLogout{flex:none;min-height:40px}
 .sideLogout{position:relative;width:100%;height:40px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#eaf0ff;font-weight:800;font-size:12.5px;cursor:pointer;transition:background .15s,color .15s}
 .sideLogout svg{width:16px;height:16px;flex:none;transition:transform .15s ease}
 .sideLogout:hover{background:rgba(217,48,37,.16);color:#fff}
@@ -1390,7 +1389,6 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
   filter:drop-shadow(0 0 4px rgba(143,180,230,.85));
   animation:fxSpin 3s linear infinite}
 .sideLogout:hover::before{animation-duration:1.6s}
-@media (prefers-reduced-motion:reduce){.sideLogout::before{animation:none}}
 </style>
 </head>
 <body>
