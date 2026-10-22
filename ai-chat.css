@@ -1,0 +1,139 @@
+/* =====================================================================================
+   AI CHAT — GIAO DIỆN TRỢ LÝ DỮ LIỆU DÙNG CHUNG (71 ADS) · v2.1
+   Màu lấy theo biến CSS của dashboard (--blue, --card, --text...) để tự hợp nền sáng/tối;
+   dashboard nào không có biến thì dùng màu mặc định sau dấu phẩy.
+   Vị trí khung chat: AIChat.init({ panelBottom: 150 }) trong file công cụ của dashboard.
+   ===================================================================================== */
+:root{
+  --aic-blue:var(--blue,#1a73e8); --aic-violet:#6d4aff;
+  --aic-card:var(--card,#ffffff); --aic-soft:var(--soft,#f3f6fb); --aic-line:var(--line,#e3e8f0);
+  --aic-text:var(--text,#16213a); --aic-muted:var(--muted,#6b7790); --aic-green:#1e9e57; --aic-red:#d93025;
+  --aic-grad:linear-gradient(120deg,#1a73e8 0%,#4f46e5 60%,#7c3aed 100%);
+}
+
+/* ---------- Robot: chớp mắt + ăng-ten nhấp nháy ---------- */
+.aicRobot .aicEye{animation:aicBlink 4.5s infinite;transform-origin:center;transform-box:fill-box}
+@keyframes aicBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.15)}}
+.aicRobot .aicAnt{animation:aicAnt 2.4s ease-in-out infinite}
+@keyframes aicAnt{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ---------- Nút mở chat: "Hỏi AI số liệu" ---------- */
+.aicFab{position:fixed;right:22px;bottom:22px;z-index:1000;height:58px;min-width:58px;border:0;border-radius:999px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:0;padding:0 7px;color:#fff;background:var(--aic-grad);
+  box-shadow:0 10px 26px rgba(79,70,229,.38);transition:gap .25s ease,padding .25s ease,transform .18s}
+.aicFab:hover{transform:translateY(-2px)}
+.aicFab .aicFace{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex:none}
+.aicFab .aicFabTxt{max-width:0;overflow:hidden;white-space:nowrap;font-weight:800;font-size:13.5px;font-family:inherit;transition:max-width .3s ease}
+.aicFab:hover,.aicFab.aicPeek{gap:8px;padding:0 18px 0 7px}
+.aicFab:hover .aicFabTxt,.aicFab.aicPeek .aicFabTxt{max-width:150px}
+.aicFab .aicLive{position:absolute;top:3px;left:42px;width:12px;height:12px;border-radius:50%;background:#22c55e;border:2px solid #fff}
+.aicFab .aicLive::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #22c55e;animation:aicPing 1.8s infinite}
+@keyframes aicPing{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+.aicFab.open{display:none}
+.aicFab .aicBadge{display:none;position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:99px;background:#ef4444;color:#fff;font-size:11px;font-weight:900;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 4px 10px rgba(239,68,68,.4)}
+.aicFab.aicUnread .aicBadge{display:flex}
+.aicFab:focus-visible,.aicHBtn:focus-visible,.aicQc:focus-visible,.aicSend:focus-visible,.aicSugg button:focus-visible{outline:2px solid #93c5fd;outline-offset:2px}
+
+/* ---------- Khung chat ---------- */
+.aicPanel{position:fixed;right:22px;bottom:var(--aic-panel-bottom,22px);z-index:1001;width:390px;max-width:calc(100vw - 32px);
+  height:min(640px,calc(100vh - var(--aic-panel-bottom,22px) - 40px));display:flex;flex-direction:column;overflow:hidden;
+  background:var(--aic-card);color:var(--aic-text);border:1px solid var(--aic-line);border-radius:20px;
+  box-shadow:0 24px 60px rgba(20,30,60,.3);animation:aicIn .22s ease;
+  transition:top .25s ease,bottom .25s ease,right .25s ease,width .25s ease,height .25s ease,border-radius .25s ease}
+.aicPanel[hidden]{display:none}
+@keyframes aicIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+/* Phóng to: ngăn kéo bên phải, cao toàn màn hình */
+.aicPanel.aicBig{top:0;bottom:0;right:0;height:100vh;width:min(470px,100vw);max-width:100vw;border-radius:0;border-width:0 0 0 1px;box-shadow:-18px 0 50px rgba(20,30,60,.22)}
+
+.aicHead{position:relative;display:flex;align-items:center;gap:10px;padding:13px 10px 13px 14px;color:#fff;background:var(--aic-grad);flex:none}
+.aicAva{position:relative;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none}
+.aicAva .aicOn{position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:#22c55e;border:2px solid #4f46e5}
+.aicHeadTxt{flex:1;min-width:0;display:flex;flex-direction:column}
+.aicHeadTxt b{display:flex;align-items:center;gap:6px;font-size:14.5px;font-weight:900;color:#fff}
+.aicHeadTxt span{font-size:10.8px;opacity:.9;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff}
+.aicTag{font-size:9.5px;font-weight:900;padding:2px 6px;border-radius:99px;background:rgba(255,255,255,.24);letter-spacing:.3px}
+.aicHBtn{width:32px;height:32px;border:0;border-radius:10px;background:transparent;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none;opacity:.92}
+.aicHBtn:hover{background:rgba(255,255,255,.18)}
+.aicHBtn svg{width:17px;height:17px}
+
+.aicMsgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,var(--aic-soft),var(--aic-card) 160px)}
+.aicBig .aicMsgs{padding:16px 18px}
+
+/* Thẻ chào + câu hỏi nhanh */
+.aicWelcome{background:var(--aic-card);border:1px solid var(--aic-line);border-radius:16px;padding:14px;box-shadow:0 4px 14px rgba(20,30,60,.05)}
+.aicWelcome h4{margin:0 0 4px;font-size:14px;font-weight:900;color:var(--aic-text)}
+.aicWelcome p{margin:0 0 12px;font-size:12px;color:var(--aic-muted);line-height:1.55}
+.aicAddr{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:-4px 0 12px;font-size:11.5px;color:var(--aic-muted)}
+.aicAddr button{border:1px solid var(--aic-line);background:var(--aic-soft);color:var(--aic-blue);border-radius:99px;padding:5px 13px;font-weight:800;font-size:11.5px;font-family:inherit;cursor:pointer}
+.aicAddr button:hover{border-color:var(--aic-blue)}
+.aicQuick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.aicQc{display:flex;gap:8px;align-items:flex-start;text-align:left;border:1px solid var(--aic-line);background:var(--aic-soft);border-radius:12px;padding:9px;cursor:pointer;color:var(--aic-text);font-family:inherit;transition:border-color .15s,transform .15s}
+.aicQc:hover{border-color:var(--aic-blue);transform:translateY(-1px)}
+.aicQc i{width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none;font-style:normal;font-size:14px}
+.aicQc b{display:block;font-size:11.5px;font-weight:800}
+.aicQc small{display:block;font-size:10.5px;color:var(--aic-muted);margin-top:1px}
+
+/* Tin nhắn */
+.aicRow{display:flex;gap:8px;align-items:flex-start}
+.aicRow.ai .aicMini{margin-top:2px}
+.aicRow.me{justify-content:flex-end}
+.aicMini{width:26px;height:26px;border-radius:9px;background:var(--aic-grad);display:flex;align-items:center;justify-content:center;flex:none}
+.aicPanel .botBubble{max-width:86%;padding:10px 12px;border-radius:14px;font-size:12.5px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word}
+.aicPanel .botBubble.user{background:linear-gradient(135deg,#1a73e8,#4f46e5);color:#fff;border-bottom-right-radius:5px}
+.aicPanel .botBubble.bot{background:var(--aic-card);color:var(--aic-text);border:1px solid var(--aic-line);border-bottom-left-radius:5px;box-shadow:0 3px 10px rgba(20,30,60,.05)}
+.aicBig .botBubble{max-width:90%}
+.aicPanel .botBubble b{font-weight:800}
+.aicPanel .botBubble .botHint{display:block;margin-top:6px;font-size:10.5px;color:var(--aic-muted);font-weight:600}
+.aicPanel .botBubble.botAi{white-space:normal;max-width:calc(100% - 34px);flex:1}
+.botBubble.botAi p{margin:0 0 6px}
+.botBubble.botAi p:last-of-type{margin-bottom:0}
+.botBubble.botAi ul,.botBubble.botAi ol{margin:2px 0 8px;padding-left:18px}
+.botBubble.botAi li{margin:2px 0}
+.botBubble.botAi h5{margin:8px 0 4px;font-size:12.5px;font-weight:900}
+.botBubble.botAi h5:first-child{margin-top:0}
+.botBubble.botAi code{font-size:11.5px;background:rgba(66,133,244,.1);padding:0 4px;border-radius:4px}
+.aicKpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:6px;margin:4px 0 8px}
+.aicKpis div{background:var(--aic-soft);border-radius:10px;padding:7px 8px;min-width:0}
+.aicKpis small{display:block;font-size:9.5px;color:var(--aic-muted);font-weight:700}
+.aicKpis strong{display:block;font-size:12.5px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aicKpis .up{color:var(--aic-green)} .aicKpis .down{color:var(--aic-red)}
+.aicFoot{display:flex;align-items:center;gap:6px;margin-top:8px;padding-top:7px;border-top:1px dashed var(--aic-line);font-size:10px;color:var(--aic-muted)}
+.aicFoot button{margin-left:auto;border:1px solid var(--aic-line);background:transparent;color:var(--aic-muted);border-radius:7px;font-weight:700;font-size:10px;font-family:inherit;padding:3px 8px;cursor:pointer}
+.aicFoot button:hover{color:var(--aic-blue);border-color:var(--aic-blue)}
+
+/* Các bước AI đang làm */
+.aicSteps{display:flex;flex-direction:column;gap:3px;margin-left:34px;font-size:10.8px;color:var(--aic-muted)}
+.aicSteps .ok::before{content:"✓ ";color:var(--aic-green);font-weight:900}
+.aicSteps .run::before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;border:2px solid var(--aic-blue);border-right-color:transparent;border-radius:50%;animation:aicSpin .8s linear infinite;vertical-align:-1px}
+@keyframes aicSpin{to{transform:rotate(360deg)}}
+
+/* Chip của trợ lý quy tắc (dự phòng) */
+.botChipRow{display:flex;flex-wrap:wrap;gap:7px;align-self:flex-start;max-width:92%;margin-left:34px}
+.botChip{background:var(--aic-card);border:1px solid var(--aic-line);color:var(--aic-blue);font-size:11.5px;font-weight:700;font-family:inherit;padding:7px 12px;border-radius:999px;cursor:pointer}
+.botChip:hover{border-color:var(--aic-blue)}
+.botLinkChip{display:inline-flex;align-items:center;gap:4px;margin-top:7px;background:rgba(26,115,232,.1);color:var(--aic-blue);border:none;font-size:11px;font-weight:800;font-family:inherit;padding:6px 11px;border-radius:999px;cursor:pointer}
+.botLinkChip:hover{background:var(--aic-blue);color:#fff}
+.botRankRow{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:12px}
+.botRankRow span{color:var(--aic-muted)}
+
+/* Gợi ý + ô nhập */
+.aicSugg{display:flex;gap:6px;overflow-x:auto;padding:8px 12px 0;flex:none;scrollbar-width:none}
+.aicSugg::-webkit-scrollbar{display:none}
+.aicSugg[hidden]{display:none}
+.aicSugg button{flex:none;border:1px solid var(--aic-line);background:var(--aic-card);color:var(--aic-blue);border-radius:99px;font-weight:700;font-size:11px;font-family:inherit;padding:6px 10px;cursor:pointer}
+.aicSugg button:hover{border-color:var(--aic-blue)}
+.aicInput{padding:10px 12px 6px;flex:none}
+.aicBox{display:flex;align-items:center;gap:8px;border:1.5px solid var(--aic-line);background:var(--aic-soft);border-radius:14px;padding:0 6px 0 12px;height:44px;transition:border-color .15s}
+.aicBox:focus-within{border-color:var(--aic-blue)}
+.aicBox input{flex:1;min-width:0;border:0;background:transparent;outline:none;color:var(--aic-text);font-size:13px;font-family:inherit}
+.aicSend{width:34px;height:34px;border:0;border-radius:11px;background:linear-gradient(135deg,#1a73e8,#4f46e5);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.aicSend svg{width:16px;height:16px}
+.aicSend:disabled{opacity:.45;cursor:wait}
+.aicLegal{font-size:9.5px;color:var(--aic-muted);text-align:center;padding:0 12px 9px;flex:none}
+
+/* Màn hình nhỏ */
+@media(max-width:520px){
+  .aicPanel{right:10px;left:10px;width:auto;max-width:none;bottom:10px;height:min(640px,calc(100vh - 20px))}
+  .aicPanel.aicBig{left:0;right:0;width:100vw}
+  .aicFab{right:16px;bottom:16px}
+}
