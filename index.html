@@ -1229,14 +1229,6 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
 
 @media(max-width:1200px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.kpiGrid,.kpiGrid.n5,.kpiGrid.n4,.kpiGrid.n6{grid-template-columns:repeat(3,1fr)}.filterbar{grid-template-columns:repeat(3,1fr)}.grid2,.paceRow{grid-template-columns:1fr}.matrix,.funnelRow{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.kpiGrid,.kpiGrid.n5,.kpiGrid.n4,.kpiGrid.n6,.filterbar,.matrix,.funnelRow{grid-template-columns:1fr}}
-/* ===== TRỢ LÝ DỮ LIỆU (chatbot) ===== */
-.botFab{position:fixed;right:22px;bottom:22px;width:56px;height:56px;border-radius:50%;border:none;background:linear-gradient(135deg,var(--blue),var(--green));color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(20,30,60,.28);z-index:1000;transition:transform .18s ease}
-.botFab:hover{transform:scale(1.06)}
-.botFab svg{width:26px;height:26px}
-.botFab.open{display:none}
-.botFabDot{position:absolute;top:2px;right:2px;width:13px;height:13px;border-radius:50%;background:var(--red);border:2px solid var(--card)}
-.botFabDot:empty{display:none}
-.botPanel{position:fixed;right:22px;bottom:150px;width:380px;max-width:calc(100vw - 32px);height:min(560px,calc(100vh - 228px));background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 60px rgba(20,30,60,.35);z-index:1001;display:flex;flex-direction:column;overflow:hidden}
 /* ---- Mini-map: liệt kê section trong tab đang xem, bấm nhảy thẳng — xếp NGAY TRÊN nút Trợ lý dữ liệu
    ở góc phải; khi mở khung chat (.botPanel) đã đẩy lên cao hơn (bottom:90px) nên không còn che nút này. ---- */
 .miniMapFab{position:fixed;right:22px;bottom:90px;width:48px;height:48px;border-radius:50%;
@@ -1254,43 +1246,7 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
 .miniMapItem:hover{background:var(--soft)}
 .miniMapItem .mmDot{width:5px;height:5px;border-radius:50%;background:var(--blue);flex:none}
 .miniMapEmpty{font-size:11.5px;color:var(--muted);padding:8px 2px;font-style:italic}
-@media(max-width:520px){.miniMapPanel{width:calc(100vw - 32px);right:16px}.miniMapFab{right:16px}.botPanel{right:16px}}
-.botPanel[hidden]{display:none}
-.botHead{display:flex;align-items:center;gap:10px;padding:14px 14px;border-bottom:1px solid var(--line);background:var(--stripe);flex:none}
-.botHeadAvatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
-.botHeadAvatar svg{width:20px;height:20px}
-.botHeadTxt{flex:1;min-width:0;display:flex;flex-direction:column}
-.botHeadTxt b{font-size:13.5px;font-weight:900;color:var(--text)}
-.botHeadTxt span{font-size:10.5px;color:var(--muted);font-weight:600}
-.botCloseBtn{width:28px;height:28px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:8px;display:flex;align-items:center;justify-content:center;flex:none}
-.botCloseBtn:hover{background:var(--soft);color:var(--text)}
-.botCloseBtn svg{width:16px;height:16px}
-.botMsgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--card)}
-.botBubble{max-width:86%;padding:10px 12px;border-radius:13px;font-size:12.5px;line-height:1.6;white-space:pre-wrap}
-.botBubble.bot{align-self:flex-start;background:var(--soft);color:var(--text);border-bottom-left-radius:4px}
-.botBubble.user{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:4px}
-.botBubble b{font-weight:800}
-.botBubble .botHint{display:block;margin-top:6px;font-size:10.5px;color:var(--muted);font-weight:600}
-.botChipRow{display:flex;flex-wrap:wrap;gap:7px;align-self:flex-start;max-width:92%}
-.botChip{background:var(--card);border:1px solid var(--line2);color:var(--blue);font-size:11.5px;font-weight:700;padding:7px 12px;border-radius:999px;cursor:pointer;transition:background .12s}
-.botChip:hover{background:var(--pastel-blue)}
-.botLinkChip{display:inline-flex;align-items:center;gap:4px;margin-top:7px;background:var(--pastel-blue);color:var(--blue);border:none;font-size:11px;font-weight:800;padding:6px 11px;border-radius:999px;cursor:pointer}
-.botLinkChip:hover{background:var(--blue);color:#fff}
-.botRankRow{display:flex;justify-content:space-between;gap:10px;padding:4px 0;font-size:12px}
-.botRankRow b{color:var(--text)}
-.botRankRow span{color:var(--muted)}
-.botTyping{align-self:flex-start;display:flex;gap:4px;padding:10px 14px;background:var(--soft);border-radius:13px;border-bottom-left-radius:4px}
-.botTyping i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:botTypingBounce 1s infinite ease-in-out}
-.botTyping i:nth-child(2){animation-delay:.15s}
-.botTyping i:nth-child(3){animation-delay:.3s}
-@keyframes botTypingBounce{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
-.botInputRow{display:flex;align-items:center;gap:8px;padding:11px 12px;border-top:1px solid var(--line);background:var(--card);flex:none}
-.botInputRow input{flex:1;border:1px solid var(--line2);background:var(--soft);border-radius:999px;padding:0 14px;height:38px;font-size:12.5px;color:var(--text);outline:none}
-.botInputRow input:focus{border-color:var(--blue)}
-.botInputRow button{width:38px;height:38px;border-radius:50%;border:none;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
-.botInputRow button svg{width:16px;height:16px}
-.botInputRow button:disabled{opacity:.4;cursor:default}
-@media(max-width:480px){.botPanel{right:10px;left:10px;width:auto;bottom:10px;height:min(600px,calc(100vh - 80px))}.botFab{right:16px;bottom:16px}}
+@media(max-width:520px){.miniMapPanel{width:calc(100vw - 32px);right:16px}.miniMapFab{right:16px}}
 /* ===================== LỚP ĐĂNG NHẬP ===================== */
 .loginGate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:auto}
 .loginGate.hidden{display:none}
@@ -2411,12 +2367,6 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
   </div>
 </div>
 
-  <!-- ============ TRỢ LÝ DỮ LIỆU (chatbot quy tắc, không cần API/internet) ============ -->
-  <button id="botFab" class="botFab" title="Trợ lý dữ liệu" aria-label="Mở trợ lý dữ liệu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.3" fill="currentColor" stroke="none"/><path d="M2 13h2M20 13h2"/></svg>
-    <span class="botFabDot" id="botFabDot"></span>
-  </button>
-
   <!-- ============ MINI-MAP: liệt kê nhanh section trong tab đang xem, bấm nhảy thẳng ============ -->
   <button id="miniMapFab" class="miniMapFab" title="Mục lục section trong tab này" aria-label="Mở mục lục section">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
@@ -2426,27 +2376,6 @@ tr.totalRow td{font-weight:900;background:var(--stripe)}
     <div class="miniMapList" id="miniMapList"></div>
   </div>
 
-  <div class="botPanel" id="botPanel" hidden>
-    <div class="botHead">
-      <div class="botHeadAvatar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.3" fill="currentColor" stroke="none"/></svg>
-      </div>
-      <div class="botHeadTxt">
-        <b>Trợ lý dữ liệu</b>
-        <span>Google Ads · dữ liệu theo quyền của bạn</span>
-      </div>
-      <button class="botCloseBtn" id="botCloseBtn" aria-label="Đóng">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <div class="botMsgs" id="botMsgs"></div>
-    <div class="botInputRow">
-      <input type="text" id="botInput" placeholder="Hỏi về chi phí, CPL, ROAS, cảnh báo..." autocomplete="off">
-      <button id="botSendBtn" aria-label="Gửi">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
-      </button>
-    </div>
-  </div>
 
 <script>
 
@@ -9678,24 +9607,43 @@ async function hubCallSheet(url, body, timeoutMs){
     if(e && e.name==="AbortError") throw new Error("Quá thời gian kết nối Google Sheet");
     throw e;
   }finally{ clearTimeout(timer); }
-  if(json && json.success===false){ const err = new Error(json.message || json.error || "Apps Script báo lỗi."); err.code = json.error; throw err; }
+  if(json && json.success===false){ const err = new Error(json.message || json.error || "Apps Script báo lỗi."); err.code = json.error; err.detail = json.detail || ""; throw err; }
   return json;
 }
 // Gửi kèm ID token Firebase; token hết hạn thì tự xin token mới 1 lần
 async function hubFetchPayload(url, forceFresh, timeoutMs){
   const fb = window.kwFirebase;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
   try{
-    const token = fb ? await fb.getToken(false) : "";
+    let token = fb ? await fb.getToken(false) : "";
+    if(!token && fb){ await wait(1200); token = await fb.getToken(false); }   // Firebase chưa kịp khôi phục phiên → chờ 1 nhịp
     if(!token){ const e0 = new Error("Phiên đăng nhập đã hết hạn."); e0.code = "AUTH_REQUIRED"; throw e0; }
     const body = {action:"data", idToken:token};
     if(forceFresh) body.nocache = true;
-    try{ return await hubCallSheet(url, body, timeoutMs); }
-    catch(err){
-      if(err && err.code==="INVALID_TOKEN"){ body.idToken = await fb.getToken(true); return await hubCallSheet(url, body, timeoutMs); }
-      throw err;
+    // Gọi Apps Script; Google thỉnh thoảng chuyển hướng yêu cầu thành GET (báo AUTH_REQUIRED · GET) —
+    // đó là trục trặc đường truyền, không phải hết phiên → thử lại tối đa 3 lần, không bắt đăng nhập lại.
+    for(let attempt=1; ; attempt++){
+      try{ return await hubCallSheet(url, body, timeoutMs); }
+      catch(err){
+        if(err && err.code==="AUTH_REQUIRED" && err.detail==="GET"){
+          if(attempt < 4){ console.warn("[Hub] Google chuyển hướng yêu cầu, thử lại lần " + (attempt+1) + "…"); await wait(1200*attempt); continue; }
+          err.code = "VERIFY_FAILED"; throw err;
+        }
+        // Token hết hạn / máy chủ không nhận được token → xin token mới, thử lại 1 lần trước khi bắt đăng nhập lại
+        if(err && (err.code==="INVALID_TOKEN" || err.code==="AUTH_REQUIRED") && !body._retried){
+          console.warn("[Hub] Thử lại với token mới:", err.code, err.detail || "");
+          body._retried = true;
+          await wait(800);
+          body.idToken = await fb.getToken(true);
+          continue;
+        }
+        throw err;
+      }
     }
   }catch(err){
-    if(err && KW_AUTH_ERRORS.includes(err.code)){ err.kwAuth = true; if(window.kwOnAuthRejected) window.kwOnAuthRejected(err.code); }
+    if(err && err.code) console.warn("[Hub] Lỗi tải dữ liệu:", err.code, err.detail || "");
+    if(err && err.code==="VERIFY_FAILED") err.message = "Máy chủ chưa xác minh được đăng nhập (Google đang trục trặc tạm thời). Bấm Cập nhật để thử lại.";
+    else if(err && KW_AUTH_ERRORS.includes(err.code)){ err.kwAuth = true; if(window.kwOnAuthRejected) window.kwOnAuthRejected(err.code); }
     throw err;
   }
 }
@@ -10065,485 +10013,6 @@ $("fQuick").value="Toàn bộ dữ liệu";
 initEmpty();
 // Dữ liệu chỉ tải SAU khi đăng nhập Firebase (xem initHubFirebaseGate)
 
-/* ============================================================================
-   TRỢ LÝ DỮ LIỆU (chatbot quy tắc — không cần API/internet, tái dùng toàn bộ
-   hàm tính toán đã có sẵn: kpiSummary/actualSummary/collectAlerts/buildSectionIndex...
-   để đảm bảo số liệu trả lời luôn khớp 100% với chính dashboard, không tính lại). */
-let botAddress="";   // "anh" | "chị" | ""
-let botLastAnalyzeSection=null;   // phần tử section vừa "đánh giá" gần nhất — để phát hiện hỏi dồn/phản bác
-let botOpened=false;
-
-function botLatestDate(){
-  const days=actualRegion.filter(r=>r.hasDay).map(r=>r.date).filter(Boolean).sort();
-  return days.length ? days[days.length-1] : "";
-}
-function botScrollBottom(){ const box=$("botMsgs"); if(box) box.scrollTop=box.scrollHeight; }
-function botAddBubble(html, sender){
-  const box=$("botMsgs"); if(!box) return null;
-  const b=document.createElement("div");
-  b.className="botBubble "+(sender||"bot");
-  b.innerHTML=html;
-  box.appendChild(b); botScrollBottom();
-  return b;
-}
-function botAddChips(items){
-  const box=$("botMsgs"); if(!box) return;
-  const row=document.createElement("div");
-  row.className="botChipRow";
-  row.innerHTML=items.map((it,i)=>`<button class="botChip" data-i="${i}">${esc(it.label)}</button>`).join("");
-  box.appendChild(row);
-  row.querySelectorAll(".botChip").forEach((el,i)=>el.addEventListener("click",()=>{ row.remove(); items[i].action(); }));
-  botScrollBottom();
-}
-function botAddLinkChip(container, label, targetId){
-  const btn=document.createElement("button");
-  btn.className="botLinkChip"; btn.textContent=label;
-  btn.addEventListener("click", ()=>{
-    const el=document.getElementById(targetId); if(!el) return;
-    const sec=el.closest(".section"); if(!sec) return;
-    const tabPanel=sec.closest(".tabPanel");
-    const tabKey=tabPanel ? PANEL_TO_TAB[tabPanel.id] : null;
-    const navBtn=tabKey ? document.querySelector(`.navItem[data-tab="${tabKey}"]`) : null;
-    if(navBtn && !navBtn.classList.contains("active")) navBtn.click();
-    setTimeout(()=>{
-      sec.scrollIntoView({behavior:"smooth",block:"start"});
-      sec.classList.add("sectionFlash");
-      setTimeout(()=>sec.classList.remove("sectionFlash"),1700);
-    },80);
-  });
-  container.appendChild(document.createElement("br"));
-  container.appendChild(btn);
-}
-function botTypingThenReply(fn){
-  const box=$("botMsgs"); if(!box) return;
-  const typ=document.createElement("div");
-  typ.className="botTyping"; typ.innerHTML="<i></i><i></i><i></i>";
-  box.appendChild(typ); botScrollBottom();
-  setTimeout(()=>{ typ.remove(); fn(); }, 380+Math.random()*260);
-}
-
-/* ---- Phân tích khoảng thời gian nhắc tới trong câu hỏi (độc lập với bộ lọc chung) ---- */
-function botParseRange(nq){
-  const latest=botLatestDate(); if(!latest) return null;
-  if(/hom nay/.test(nq)) return {from:latest,to:latest,label:"hôm nay"};
-  if(/hom qua/.test(nq)) return {from:addDaysISO(latest,-1),to:addDaysISO(latest,-1),label:"hôm qua"};
-  if(/thang nay/.test(nq)){ const m=latest.slice(0,7); return {from:monthStartISO(m),to:monthEndISO(m),label:"tháng này"}; }
-  if(/quy nay/.test(nq)){
-    const y=Number(latest.slice(0,4)), mo=Number(latest.slice(5,7));
-    const startM=Math.floor((mo-1)/3)*3+1;
-    return {from:`${y}-${String(startM).padStart(2,"0")}-01`, to:monthEndISO(`${y}-${String(startM+2).padStart(2,"0")}`), label:"quý này"};
-  }
-  if(/nam nay/.test(nq)){ const y=latest.slice(0,4); return {from:`${y}-01-01`,to:`${y}-12-31`,label:"năm nay"}; }
-  if(/toan bo|tat ca du lieu/.test(nq)) return {from:"",to:"",label:"toàn bộ dữ liệu"};
-  const numMatch=nq.match(/(\d+)\s*ngay/);
-  if(numMatch){ const n=Math.max(1,Math.min(365,Number(numMatch[1]))); return {from:addDaysISO(latest,-(n-1)),to:latest,label:`${n} ngày qua`}; }
-  if(/tuan nay/.test(nq)) return {from:addDaysISO(latest,-6),to:latest,label:"7 ngày qua"};
-  return null;
-}
-function botRangeOrCurrent(nq){
-  const parsed=botParseRange(nq); if(parsed) return parsed;
-  const r=computeRange();
-  return {from:r.from, to:r.to, label:(r.from&&r.to)?`${formatDateVN(r.from)} → ${formatDateVN(r.to)}`:"toàn bộ dữ liệu (theo bộ lọc hiện tại)"};
-}
-
-const BOT_GLOSSARY={
-  "cpl":"CPL (Cost Per Lead) = Chi phí ÷ Data (số lead thu được). CPL càng thấp càng tốt.",
-  "roas":"ROAS (Return On Ad Spend) = Doanh thu ÷ Chi phí quảng cáo. ROAS > 1 nghĩa là đang có lời.",
-  "cir":"CIR (Cost to Income Ratio) = Chi phí ÷ Doanh thu — càng thấp càng hiệu quả (ngược nghĩa ROAS).",
-  "kpi":"KPI là chỉ tiêu mục tiêu đặt theo từng khu vực/tháng, dùng so sánh với Thực đạt để đánh giá hiệu suất.",
-};
-
-/* ---- Đánh giá section theo yêu cầu chat — CHỈ dùng số liệu/trạng thái ĐÃ CÓ SẴN trong chính
-   dashboard (đọc lại + diễn đạt thành câu), KHÔNG bao giờ tự tính hay bịa thêm số liệu mới. ---- */
-const BOT_INSIGHT_SELECTORS=["#taInsight","#weekdayInsight","#lmwInsight","#bhInsight","#fcInsight","#mktExcludedNote"];
-function botFindInsightText(sec){
-  for(const sel of BOT_INSIGHT_SELECTORS){
-    const el=sec.querySelector(sel);
-    if(el && el.textContent.trim().length>8) return el.textContent.trim();
-  }
-  const list=sec.querySelector("#bfInsightList");
-  if(list){
-    const items=[...list.querySelectorAll("li")].map(li=>li.textContent.trim()).filter(Boolean);
-    if(items.length) return items.slice(0,3).join(" · ");
-  }
-  return null;
-}
-function botScanStatusBadges(sec){
-  const badges=[...sec.querySelectorAll(".statusBadge, .assessBadge")];
-  if(!badges.length) return null;
-  const groups={good:[], watch:[], warn:[], bad:[]};
-  badges.forEach(b=>{
-    const cls = b.classList.contains("good")?"good" : b.classList.contains("bad")?"bad" : b.classList.contains("warn")?"warn" : b.classList.contains("watch")?"watch" : null;
-    if(!cls) return;
-    const tr=b.closest("tr");
-    let name="";
-    if(tr){ const firstCell=tr.querySelector("td,th"); if(firstCell) name=firstCell.textContent.replace(/[›▾▸▹◂◄→]/g,"").trim(); }
-    groups[cls].push(name||"(không rõ tên)");
-  });
-  const total=Object.values(groups).reduce((a,g)=>a+g.length,0);
-  if(!total) return null;
-  const fmt=(label,arr)=> arr.length ? `<b>${label} (${arr.length}):</b> ${arr.slice(0,6).join(", ")}${arr.length>6?"…":""}` : null;
-  const parts=[fmt("Tốt",groups.good), fmt("Cần theo dõi",groups.watch), fmt("Cần siết lại",groups.warn), fmt("Xấu/dừng lại",groups.bad)].filter(Boolean);
-  return `Quét ${total} nhãn trạng thái đang hiển thị trong mục này:<br>${parts.join("<br>")}`;
-}
-function botCurrentFilterLabel(){
-  const r=computeRange();
-  return (r.from&&r.to) ? `${formatDateVN(r.from)} → ${formatDateVN(r.to)}` : "Toàn bộ dữ liệu";
-}
-/* tìm 1 dòng bảng có tên khớp gần đúng (vd "thẩm mỹ viện", "phòng khám", tên khu vực...) trong section,
-   đọc lại NGUYÊN VĂN các ô đã hiển thị — không tính toán gì thêm, chỉ trích xuất số đã có sẵn trên màn hình */
-function botFindTableRowText(sec, nameHint){
-  const rows=[...sec.querySelectorAll("table tr")];
-  const hint=norm(nameHint);
-  for(const tr of rows){
-    const firstCell=tr.querySelector("td,th");
-    if(!firstCell) continue;
-    if(norm(firstCell.textContent).includes(hint)){
-      const cells=[...tr.querySelectorAll("td")].map(td=>td.textContent.replace(/[›▾▸▹◂◄→]/g,"").trim()).filter(Boolean);
-      if(cells.length>1) return cells.slice(0,6).join(" · ");
-    }
-  }
-  return null;
-}
-const BOT_ROWHINT_KEYWORDS=["thẩm mỹ viện","phòng khám","miền bắc","miền trung","miền tây","tây nguyên","hồ chí minh","đông nam bộ","campuchia"];
-/* ============================================================================
-   BÁO CÁO TOÀN DIỆN (chatbot) — phân loại khu vực + tìm nút thắt + tổng quan.
-   TOÀN BỘ dùng số liệu thật (actualRowsByRegion/kpiMonthly đã có), phân loại theo
-   ĐÚNG ngưỡng r>=1 "đạt KPI" đã dùng sẵn trong paMetricStatus (không bịa ngưỡng mới).
-   Câu chữ là MẪU CỐ ĐỊNH ghép theo nhóm (giống cách ĐÁNH GIÁ PERFORMANCE ANALYST đang
-   làm) — không phải AI tự luận câu riêng cho từng khu vực. ============================================================================ */
-function botRegionKpiRow(region, range, actualRow){
-  let kpiCost=0,kpiData=0,kpiKM=0,kpiRev=0;
-  kpiMonthly.forEach(r=>{
-    if(r.region!==region) return;
-    if(!monthIntersects(r.month,range.from,range.to)) return;
-    kpiCost+=r.kpiCost||0; kpiData+=r.kpiData||0; kpiKM+=r.kpiKhachMoi||0; kpiRev+=r.kpiRevenue||0;
-  });
-  return {...actualRow, kpiCost, kpiData, kpiKM, kpiRev};
-}
-function botClassifyRegions(range){
-  const rows=actualRowsByRegion(range).map(r=>botRegionKpiRow(r.name, range, r));
-  const scale=[], optimize=[], warn=[];
-  rows.forEach(r=>{
-    const rData = r.kpiData ? r.data/r.kpiData : null;
-    const rKM   = r.kpiKM   ? r.slKhachMoi/r.kpiKM : null;
-    const rRev  = r.kpiRev  ? r.doanhThu/r.kpiRev : null;
-    r._rData=rData; r._rKM=rKM; r._rRev=rRev;
-    if(r.slKhachMoi===0 || r.data===0){ warn.push(r); return; }               // không ra khách mới / không có data -> cảnh báo
-    if(rData!==null && rKM!==null && rData>=1 && rKM>=1){ scale.push(r); return; } // đạt đủ KPI Data lẫn Khách mới (đúng ngưỡng paMetricStatus) -> nên scale
-    optimize.push(r);                                                          // còn lại: có phát sinh nhưng chưa đạt đủ KPI -> cần tối ưu
-  });
-  return {scale, optimize, warn};
-}
-function botBottleneck(r){
-  const parts=[{k:"Data",v:r._rData},{k:"Khách mới",v:r._rKM},{k:"Doanh thu",v:r._rRev}].filter(p=>p.v!==null);
-  if(!parts.length) return null;
-  parts.sort((a,b)=>a.v-b.v);
-  return {weak:parts[0], strong:parts[parts.length-1]};
-}
-function botFullReport(range, addr){
-  const s=actualSummary(range), kp=kpiSummary(range);
-  const {scale, optimize, warn}=botClassifyRegions(range);
-  const Addr=addr.charAt(0).toUpperCase()+addr.slice(1);
-
-  let html=`<b>📊 Báo cáo toàn diện</b> — vai trò chuyên gia performance marketing (${range.label||botCurrentFilterLabel()}):<br><br>`;
-
-  html+=`<b>Tổng quan:</b> Chi phí ${moneyCell(s.cost)}, Data ${dataCell(s.data)}, Khách mới ${dataCell(s.slKhachMoi)}, Doanh thu ${moneyCell(s.doanhThu)}`;
-  if(s.data>0) html+=`, tỷ lệ Data→Khách mới ${pctCell(s.slKhachMoi/s.data)}`;
-  html+=`.<br><br>`;
-
-  if(scale.length){
-    html+=`<b style="color:var(--green)">✅ Nhóm nên Scale (${scale.length}):</b><br>`;
-    scale.forEach(r=>{
-      html+=`• <b>${esc(r.name)}</b>: ${dataCell(r.data)} Data → ${dataCell(r.slKhachMoi)} KM · Giá KM ${moneyCell(r.giaKhachMoi)} — đạt đủ KPI Data &amp; Khách mới, có thể tăng ngân sách theo nhịp nhỏ và theo dõi Giá KM sau khi tăng.<br>`;
-    });
-    html+=`<br>`;
-  }
-  if(optimize.length){
-    html+=`<b style="color:var(--yellow-dk)">⚠ Nhóm cần tối ưu (${optimize.length}):</b><br>`;
-    optimize.forEach(r=>{
-      const bn=botBottleneck(r);
-      let note="có phát sinh nhưng chưa đạt đủ KPI.";
-      if(bn){
-        const strongGood = bn.strong.v>=1;
-        const strongPhrase = strongGood
-          ? `đang tốt ở <b>${bn.strong.k}</b> (đạt ${pctCell(bn.strong.v)} KPI)`
-          : `khá hơn ở <b>${bn.strong.k}</b> (${pctCell(bn.strong.v)} KPI — vẫn chưa đạt) so với`;
-        note = strongGood
-          ? `${strongPhrase} nhưng chỉ đạt <b>${pctCell(bn.weak.v)} KPI ${bn.weak.k}</b> — đây là nút thắt cần gỡ trước khi tăng ngân sách.`
-          : `${strongPhrase} <b>${bn.weak.k}</b> (chỉ ${pctCell(bn.weak.v)} KPI) — cả 2 đều chưa đạt mục tiêu, cần cải thiện đồng thời trước khi cân nhắc tăng ngân sách.`;
-      }
-      html+=`• <b>${esc(r.name)}</b>: ${dataCell(r.data)} Data → ${dataCell(r.slKhachMoi)} KM · Giá KM ${moneyCell(r.giaKhachMoi)} — ${note}<br>`;
-    });
-    html+=`<br>`;
-  }
-  if(warn.length){
-    html+=`<b style="color:var(--red)">🚫 Nhóm cảnh báo (${warn.length}):</b><br>`;
-    warn.forEach(r=>{
-      html+=`• <b>${esc(r.name)}</b>: ${moneyCell(r.cost)} chi phí, ${dataCell(r.data)} Data, <b>0 khách mới</b> — không scale cho đến khi cải thiện chuyển đổi hoặc xác định lại nguồn data.<br>`;
-    });
-    html+=`<br>`;
-  }
-
-  html+=`<b>→ Hành động ưu tiên:</b><br>`;
-  const actions=[];
-  if(scale.length) actions.push(`Ưu tiên tăng ngân sách có kiểm soát cho <b>${esc(scale[0].name)}</b> (đang đạt đủ KPI), tăng theo nhịp nhỏ để kiểm tra khả năng mở rộng.`);
-  if(optimize.length){
-    const worst=[...optimize].sort((a,b)=>(a._rKM??1)-(b._rKM??1))[0];
-    if(worst) actions.push(`Rà soát chất lượng lead &amp; tốc độ gọi lại ở <b>${esc(worst.name)}</b> trước khi bơm thêm ngân sách.`);
-  }
-  if(warn.length){
-    const biggestWarnCost=[...warn].sort((a,b)=>b.cost-a.cost)[0];
-    if(biggestWarnCost && biggestWarnCost.cost>0) actions.push(`Kiểm tra ngay <b>${esc(biggestWarnCost.name)}</b> — đang tiêu ${moneyCell(biggestWarnCost.cost)} nhưng 0 khách mới.`);
-  }
-  if(!scale.length) actions.push(`Chưa có khu vực nào đạt đủ điều kiện scale theo ngưỡng KPI hiện tại.`);
-  actions.forEach(a=> html+=`• ${a}<br>`);
-
-  html+=`<br><span style="color:var(--muted);font-size:10.5px">📅 Khoảng thời gian: ${range.label||botCurrentFilterLabel()} · Phân loại dựa trên ngưỡng "đạt ≥100% KPI" đã dùng sẵn trong dashboard, không phải AI tự suy luận riêng cho từng khu vực.</span>`;
-  return html;
-}
-
-function botAnalyzeSection(sec, title, addr, rawQuery){
-  const nq=norm(rawQuery||"");
-  const Addr=addr.charAt(0).toUpperCase()+addr.slice(1);
-  const filterNote=`<br><span style="color:var(--muted);font-size:10.5px">📅 Số liệu đang phản ánh đúng bộ lọc thời gian hiện tại của dashboard: <b>${botCurrentFilterLabel()}</b>. Muốn xem tháng/khoảng khác, ${addr} đổi bộ lọc ở thanh bên trái rồi hỏi lại — mình không tự đổi được bộ lọc qua chat.</span>`;
-  // phát hiện câu hỏi nhắc 1 tháng cụ thể nhưng bộ lọc dashboard hiện KHÔNG khớp tháng đó -> cảnh báo rõ, tránh hiểu lầm số liệu sai
-  const monthMatch=nq.match(/thang\s*(\d{1,2})/);
-  let mismatchNote="";
-  if(monthMatch){
-    const askedMonth=Number(monthMatch[1]);
-    const curMonth=F.month!=="Tất cả" ? Number(F.month.slice(5,7)) : null;
-    if(curMonth!==askedMonth){
-      mismatchNote=`<br><span style="color:var(--yellow-dk);font-size:10.5px">⚠ ${Addr} hỏi về <b>tháng ${askedMonth}</b>, nhưng bộ lọc dashboard hiện tại KHÔNG đang set đúng tháng đó (đang là: ${botCurrentFilterLabel()}) — số liệu dưới đây <b>chưa chắc đúng tháng ${askedMonth}</b>. ${Addr} đổi bộ lọc "Tháng" = Tháng ${askedMonth} trước rồi hỏi lại để chắc chắn nhé.</span>`;
-    }
-  }
-  const hint=BOT_ROWHINT_KEYWORDS.find(k=>nq.includes(norm(k)));
-  if(hint){
-    const rowText=botFindTableRowText(sec, hint);
-    if(rowText){
-      return `Với vai trò chuyên gia performance marketing, đây là số liệu <b>${esc(hint)}</b> trong mục <b>${esc(title)}</b> (đọc trực tiếp từ bảng, không tính lại):<br><br>${esc(rowText)}${mismatchNote}${filterNote}`;
-    }
-  }
-  const insight=botFindInsightText(sec);
-  if(insight){
-    return `Với vai trò chuyên gia performance marketing, dựa trên nhận định dashboard đã tính sẵn cho <b>${esc(title)}</b>:<br><br>${esc(insight)}${mismatchNote}${filterNote}`;
-  }
-  const scan=botScanStatusBadges(sec);
-  if(scan){
-    return `Với vai trò chuyên gia performance marketing, mình xem qua <b>${esc(title)}</b>:<br><br>${scan}${mismatchNote}${filterNote}`;
-  }
-  return `Mục <b>${esc(title)}</b> hiện <b>chưa có sẵn phân tích/nhãn trạng thái tự động</b> trong dashboard, nên mình xin phép không tự suy diễn để tránh đưa nhận định sai lệch ${addr} nhé. ${Addr} có thể xem trực tiếp số liệu trong mục này, hoặc hỏi mình 1 chỉ số cụ thể (Chi phí/CPL/ROAS/Doanh thu...) mình tra cứu chính xác ngay.`;
-}
-
-function botHandle(raw){
-  const nq=norm(raw);
-
-  if(/^(anh|chi)$/.test(nq.trim())){
-    botAddress = nq.trim()==="chi" ? "chị" : "anh";
-    botAddBubble(`Dạ vâng ${botAddress}! Giờ ${botAddress} có thể hỏi mình bất cứ điều gì về dữ liệu Google Ads nhé.`,"bot");
-    botShowSuggestions();
-    return;
-  }
-  const addr=botAddress||"bạn";
-
-  if(/^(cam on|thanks|thank you|^ok$|^oke$)/.test(nq.trim())){
-    botAddBubble(`Dạ không có gì ${addr}! Cần hỏi gì thêm cứ nhắn mình nhé.`,"bot"); return;
-  }
-
-  for(const key in BOT_GLOSSARY){
-    if(nq.includes(key+" la gi") || nq===key){
-      botAddBubble(`<b>${key.toUpperCase()}</b> — ${BOT_GLOSSARY[key]}`,"bot"); return;
-    }
-  }
-
-  if(/tim (kiem )?(section|muc|phan)|section nao|phan nao co|muc nao co/.test(nq)){
-    const idx=buildSectionIndex();
-    const stop=["tim","kiem","section","muc","phan","o","dau","nao","co","cho","toi","minh","giup","the","ban","theo","trong","cua","va","la","gi","hay","giup","xem","hien","thi","di","toi"];
-    // ưu tiên 1: khớp nguyên cụm từ liên tiếp (bỏ các từ khóa lệnh "tìm section...") -> chính xác nhất
-    const query = nq.replace(/tim (kiem )?(section|muc|phan)( nay)?/,"").trim();
-    let matches = query ? idx.filter(it=>it.norm.includes(query)) : [];
-    // ưu tiên 2: nếu không khớp nguyên cụm, chấm điểm theo SỐ TỪ khớp (nhiều từ khớp hơn = liên quan hơn), không lấy bừa theo thứ tự DOM
-    if(!matches.length){
-      const words=nq.split(/\s+/).filter(w=>w && !stop.includes(w));
-      if(words.length){
-        const scored = idx.map(it=>({it, score: words.filter(w=>it.norm.includes(w)).length})).filter(x=>x.score>0);
-        scored.sort((a,b)=>b.score-a.score);
-        matches = scored.map(x=>x.it);
-      }
-    }
-    if(!matches.length) matches=idx;
-    matches=matches.slice(0,5);
-    botAddBubble(`Mình tìm được ${matches.length} section liên quan, bấm để mình đưa ${addr} tới đó ngay:`,"bot");
-    botAddChips(matches.map(it=>({
-      label:`${it.title} (${it.tabLabel})`,
-      action:()=>{ goToSection(it); botAddBubble(`Đã mở section <b>${esc(it.title)}</b> ở tab ${esc(it.tabLabel)} rồi ${addr} nhé.`,"bot"); }
-    })));
-    return;
-  }
-
-  if(/canh bao|dang mo|van de gi|rui ro|bat thuong/.test(nq)){
-    const range=botRangeOrCurrent(nq);
-    const alerts=collectAlerts(range);
-    if(!alerts.length){ botAddBubble(`Hiện tại (${range.label}) mình không thấy cảnh báo nào đang mở — mọi chỉ số trong ngưỡng an toàn ${addr} nhé! ✅`,"bot"); return; }
-    let html=`Đang có <b>${alerts.length} cảnh báo</b> (${range.label}):<br><br>`;
-    alerts.slice(0,5).forEach((a,i)=>{ html+=`${i+1}. <b>${esc(a.title)}</b><br><span style="color:var(--muted)">${esc(a.desc)}</span><br><br>`; });
-    const bubble=botAddBubble(html,"bot");
-    if(alerts[0].target) botAddLinkChip(bubble, "Xem chi tiết cảnh báo đầu tiên →", alerts[0].target);
-    return;
-  }
-
-  // Kiểm tra CTR / chiến dịch cụ thể TRƯỚC nhánh Top N — vì câu dạng "CTR chiến dịch nào cao nhất"
-  // cũng chứa từ khóa "cao nhất" nên phải chặn ở đây trước, tránh rơi nhầm vào xếp hạng theo Chi phí.
-  if(/\bctr\b/.test(nq) || /chien dich/.test(nq)){
-    botAddBubble(`Mình xin lỗi ${addr}, dữ liệu nguồn hiện tại <b>không có cột CTR</b> và <b>không có breakdown theo tên từng chiến dịch cụ thể</b> — chỉ có ở cấp Khu vực / KV Địa lý (chi nhánh) / Dịch vụ-Phễu. ${addr.charAt(0).toUpperCase()+addr.slice(1)} muốn xem theo cấp nào thay thế?`,"bot");
-    botAddChips([
-      {label:"Xem theo Khu vực", action:()=>botSend("Top 5 khu vực chi phí cao nhất")},
-      {label:"Xem theo KV Địa lý", action:()=>botSend("Top 5 kv dia ly chi phi cao nhat")},
-      {label:"Xem theo Dịch vụ", action:()=>botSend("Top 5 dich vu chi phi cao nhat")},
-    ]);
-    return;
-  }
-
-  const topMatch=nq.match(/top\s*(\d+)?|cao nhat|thap nhat|re nhat|dat nhat/);
-  if(topMatch){
-    const nRaw=topMatch[1];
-    const n=nRaw?Math.max(1,Math.min(10,Number(nRaw))):5;
-    const byService=/dich vu|pheu/.test(nq);
-    const byLoaiHinh=/kv dia ly|chi nhanh/.test(nq);
-    const range=botRangeOrCurrent(nq);
-    let rows = byService ? actualRowsByFunnel(range) : (byLoaiHinh ? actualRowsByLoaiHinh(range) : actualRowsByRegion(range));
-    let metricKey="cost", metricLabel="Chi phí", fmt=moneyCell, asc=false;
-    if(/cpl/.test(nq)){ metricKey="cpl"; metricLabel="CPL"; asc=/re nhat|thap nhat/.test(nq) || !/dat nhat|cao nhat/.test(nq); }
-    else if(/roas/.test(nq)){ metricKey="roasNewNew"; metricLabel="ROAS (Mới/Tổng)"; fmt=v=>Number(v).toFixed(2); asc=/thap nhat/.test(nq); }
-    else if(/doanh thu/.test(nq)){ metricKey="doanhThu"; metricLabel="Doanh thu"; asc=/thap nhat/.test(nq); }
-    else if(/khach moi/.test(nq)){ metricKey="slKhachMoi"; metricLabel="SL khách mới"; fmt=dataCell; asc=/thap nhat/.test(nq); }
-    else if(/\bdata\b/.test(nq)){ metricKey="data"; metricLabel="Data"; fmt=dataCell; asc=/thap nhat/.test(nq); }
-    else if(/chi phi/.test(nq)){ metricKey="cost"; metricLabel="Chi phí"; asc=/thap nhat/.test(nq); }
-    else { asc=/thap nhat|re nhat/.test(nq); }
-    rows=rows.filter(r=>isFinite(r[metricKey]) && r.cost>0);
-    rows.sort((a,b)=> asc ? a[metricKey]-b[metricKey] : b[metricKey]-a[metricKey]);
-    const top=rows.slice(0,n);
-    if(!top.length){ botAddBubble(`Mình chưa tìm thấy dữ liệu phù hợp trong khoảng ${range.label} ${addr} ơi.`,"bot"); return; }
-    let html=`Top ${top.length} theo <b>${metricLabel}</b> (${range.label}):<br><br>`;
-    top.forEach((r,i)=>{ html+=`<div class="botRankRow"><span>${i+1}. ${esc(r.name)}</span><b>${fmt(r[metricKey])}</b></div>`; });
-    botAddBubble(html,"bot");
-    return;
-  }
-
-  if(/so voi ky truoc|tang giam|bien dong|so sanh/.test(nq)){
-    const range=botRangeOrCurrent(nq);
-    if(!range.from||!range.to){ botAddBubble(`Để so sánh kỳ trước, ${addr} cho mình biết khoảng thời gian cụ thể nhé (vd "7 ngày qua", "tháng này"...).`,"bot"); return; }
-    const prev=prevRange(range.from,range.to);
-    const s=actualSummary(range), sp=actualSummary(prev);
-    const chg=(a,b)=> b? ((a-b)/b*100) : null;
-    const fmtChg=v=> v===null?"—":(v>=0?"▲ ":"▼ ")+Math.abs(v).toFixed(1)+"%";
-    let html=`So sánh <b>${range.label}</b> với kỳ liền trước (${formatDateVN(prev.from)}→${formatDateVN(prev.to)}):<br><br>`;
-    html+=`<div class="botRankRow"><span>Chi phí</span><b>${moneyCell(s.cost)} (${fmtChg(chg(s.cost,sp.cost))})</b></div>`;
-    html+=`<div class="botRankRow"><span>Data</span><b>${dataCell(s.data)} (${fmtChg(chg(s.data,sp.data))})</b></div>`;
-    html+=`<div class="botRankRow"><span>Khách mới</span><b>${dataCell(s.slKhachMoi)} (${fmtChg(chg(s.slKhachMoi,sp.slKhachMoi))})</b></div>`;
-    html+=`<div class="botRankRow"><span>Doanh thu</span><b>${moneyCell(s.doanhThu)} (${fmtChg(chg(s.doanhThu,sp.doanhThu))})</b></div>`;
-    botAddBubble(html,"bot");
-    return;
-  }
-
-  const metricAsk=[
-    {re:/chi phi/, key:"cost", label:"Chi phí", fmt:moneyCell, kpiKey:"kpiCost"},
-    {re:/\bcpl\b|gia data/, key:"cpl", label:"CPL (Giá Data)", fmt:moneyCell, kpiKey:"kpiCpl"},
-    {re:/roas/, key:"roasNewNew", label:"ROAS (Mới/Tổng)", fmt:v=>Number(v).toFixed(2), kpiKey:"kpiRoas"},
-    {re:/doanh thu/, key:"doanhThu", label:"Doanh thu", fmt:moneyCell, kpiKey:"kpiRevenue"},
-    {re:/khach moi/, key:"slKhachMoi", label:"SL khách mới", fmt:dataCell, kpiKey:"kpiKhachMoi"},
-    {re:/\bdata\b/, key:"data", label:"Data", fmt:dataCell, kpiKey:"kpiData"},
-    {re:/gia khach moi/, key:"giaKhachMoi", label:"Giá khách mới", fmt:moneyCell, kpiKey:null},
-    {re:/\bcir\b/, key:"cir", label:"CIR", fmt:v=>(Number(v)*100).toFixed(1)+"%", kpiKey:null},
-  ];
-  const found=metricAsk.find(m=>m.re.test(nq));
-  if(found){
-    const range=botRangeOrCurrent(nq);
-    const s=actualSummary(range), kp=kpiSummary(range);
-    let html=`<b>${found.label}</b> (${range.label}): <b>${found.fmt(s[found.key])}</b>`;
-    if(found.kpiKey && kp[found.kpiKey]){
-      const ratio=s[found.key]/kp[found.kpiKey];
-      html+=`<br><span style="color:var(--muted)">So với KPI (${found.fmt(kp[found.kpiKey])}): đạt ${(ratio*100).toFixed(0)}%</span>`;
-    }
-    // Ghi chú thông minh: nếu Chi phí=0 nhưng Data>0 trong khoảng ngắn (vd "hôm nay") -> nhiều khả năng
-    // do dữ liệu Chi phí của ngày gần nhất chưa kịp đồng bộ (Data thường cập nhật nhanh hơn Chi phí),
-    // không phải thực sự không chạy quảng cáo. Giúp người dùng không hiểu nhầm là lỗi hệ thống.
-    if(found.key==="cost" && s.cost===0 && s.data>0 && range.from===range.to){
-      html+=`<br><span class="botHint">⚠ Lưu ý: Data đã ghi nhận ${dataCell(s.data)} nhưng Chi phí đang là 0 — nhiều khả năng dữ liệu Chi phí của ngày này <b>chưa kịp đồng bộ</b> (Data thường cập nhật nhanh hơn Chi phí 1 nhịp), chứ không hẳn là không chạy quảng cáo. ${addr.charAt(0).toUpperCase()+addr.slice(1)} thử hỏi lại "chi phí hôm qua" để đối chiếu nhé.</span>`;
-    }
-    botAddBubble(html,"bot");
-    return;
-  }
-
-  // Nhánh "đánh giá/phân tích/nhận xét" mở rộng — đặt CUỐI CÙNG (sau mọi nhánh tra cứu cụ thể) để không
-  // "nuốt" nhầm các câu hỏi đã có câu trả lời chính xác hơn (vd "đánh giá CPL hôm nay" nên đi vào tra cứu số
-  // ở nhánh phía trên). Bắt được cả câu không có chữ "section này" (vd "đánh giá giúp tôi hiệu suất tháng này
-  // cho nhóm thẩm mỹ viện") miễn là đang có 1 section đã mở qua chat/thanh tìm kiếm.
-  if(/phan tich toan dien|bao cao tong quan|bao cao ceo|nhom nao nen scale|danh gia toan he thong|phan loai khu vuc|nhom can toi uu/.test(nq)){
-    const range=botRangeOrCurrent(nq);
-    botAddBubble(botFullReport(range, addr), "bot");
-    return;
-  }
-
-  if(/danh gia|phan tich|nhan xet/.test(nq)){
-    const ctx=window.botLastSection;
-    if(!ctx || !ctx.el || !document.body.contains(ctx.el)){
-      botAddBubble(`${addr.charAt(0).toUpperCase()+addr.slice(1)} chưa "mở" section nào qua mình hoặc qua thanh tìm kiếm cả — ${addr} tìm 1 section trước nhé (vd "tìm section hiệu suất theo thứ trong tuần"), rồi hỏi lại "đánh giá section này" mình sẽ xem ngay.`,"bot");
-      return;
-    }
-    // phát hiện câu hỏi dồn/phản bác ("là đánh giá chưa", "chưa rõ", "cụ thể hơn"...) sau khi đã đưa ra
-    // đúng 1 câu trả lời rồi -> KHÔNG lặp lại y hệt, mà nói thẳng giới hạn thay vì giả vờ hiểu sâu hơn.
-    const isPushback=/la danh gia chua|chua ro|chua du|chua dung|khong dung|cu the hon|ro hon|dung ma|that su|the la xong|the thoi a/.test(nq);
-    const hasNewHint=BOT_ROWHINT_KEYWORDS.some(k=>nq.includes(norm(k)));
-    if(isPushback && botLastAnalyzeSection===ctx.el && !hasNewHint){
-      const Addr=addr.charAt(0).toUpperCase()+addr.slice(1);
-      botAddBubble(`${Addr} nói đúng, đây thực sự chỉ là mức phân tích tối đa mình làm được ${addr} ạ 🙏 — trợ lý này chạy bằng <b>quy tắc cố định</b> (không phải AI thật), nên chỉ tổng hợp lại đúng số/nhãn dashboard đã tính sẵn, chứ không tự suy luận sâu hơn hay trả lời được các câu hỏi xoáy tiếp theo như "vì sao", "nên làm gì". Muốn có mức phân tích chuyên gia thật sự linh hoạt, sẽ cần nâng cấp lên AI thật (mình từng trao đổi việc này với ${addr}). Trong lúc đó, ${addr} hỏi mình 1 chỉ số thật cụ thể (vd "CPL tháng 8 khu vực Miền Bắc") mình tra đúng số liệu ngay nhé.`,"bot");
-      return;
-    }
-    botLastAnalyzeSection=ctx.el;
-    botAddBubble(botAnalyzeSection(ctx.el, ctx.title, addr, raw),"bot");
-    return;
-  }
-
-  botAddBubble(`Mình chưa chắc hiểu ý ${addr} lắm 🤔. Mình trả lời được các dạng câu hỏi sau — ${addr} thử xem:`,"bot");
-  botShowSuggestions();
-}
-
-function botShowSuggestions(){
-  botAddChips([
-    {label:"Phân tích toàn diện", action:()=>botSend("Phân tích toàn diện")},
-    {label:"Chi phí hôm nay là bao nhiêu?", action:()=>botSend("Chi phí hôm nay là bao nhiêu?")},
-    {label:"Top 5 khu vực CPL rẻ nhất", action:()=>botSend("Top 5 khu vực CPL rẻ nhất")},
-    {label:"Có cảnh báo nào đang mở không?", action:()=>botSend("Có cảnh báo nào đang mở không?")},
-    {label:"So sánh 7 ngày qua với kỳ trước", action:()=>botSend("So sánh 7 ngày qua với kỳ trước")},
-    {label:"Tìm section Hiệu suất khu vực", action:()=>botSend("Tìm section Hiệu suất khu vực")},
-  ]);
-}
-function botSend(text){
-  text=(text||"").trim(); if(!text) return;
-  botAddBubble(esc(text),"user");
-  $("botInput").value="";
-  botTypingThenReply(()=>botHandle(text));
-}
-(function initBot(){
-  const fab=$("botFab"), panel=$("botPanel"), closeBtn=$("botCloseBtn"), input=$("botInput"), sendBtn=$("botSendBtn");
-  if(!fab||!panel) return;
-  function openBot(){
-    panel.hidden=false; fab.classList.add("open");
-    if(!botOpened){
-      botOpened=true;
-      botAddBubble(`Xin chào! Mình là trợ lý dữ liệu Google Ads 🤖<br>Bạn hỏi được về <b>chi tiêu, CPL, chuyển đổi, ROAS, Data, cảnh báo...</b> của dashboard, hoặc yêu cầu mình lên hẳn 1 <b>báo cáo toàn diện</b> theo góc nhìn chuyên gia.<br>Ví dụ: "Phân tích toàn diện", "Chi phí 7 ngày qua", "Top 5 khu vực CPL rẻ nhất", "Có cảnh báo nào đang mở không?".`,"bot");
-      botAddBubble(`Để xưng hô cho đúng, mình nên gọi bạn là?`,"bot");
-      botAddChips([{label:"Anh", action:()=>botSend("Anh")},{label:"Chị", action:()=>botSend("Chị")}]);
-    }
-    setTimeout(()=>input.focus(),100);
-  }
-  function closeBot(){ panel.hidden=true; fab.classList.remove("open"); }
-  fab.addEventListener("click",openBot);
-  closeBtn.addEventListener("click",closeBot);
-  sendBtn.addEventListener("click",()=>botSend(input.value));
-  input.addEventListener("keydown",e=>{ if(e.key==="Enter") botSend(input.value); });
-})();
 
 </script>
 <!-- ===================== FIREBASE AUTHENTICATION (71 ADS) =====================
@@ -10681,5 +10150,9 @@ const FB_VER = "10.12.2";
   if(mq.addEventListener) mq.addEventListener("change",onMq); else mq.addListener(onMq);
 })();
 </script>
+<!-- ===================== TRỢ LÝ DỮ LIỆU AI (file riêng trong thư mục ai-chat/) ===================== -->
+<link rel="stylesheet" href="ai-chat/ai-chat.css">
+<script src="ai-chat/ai-chat.js"></script>
+<script src="ai-chat/hub-tools.js"></script>
 </body>
 </html>
